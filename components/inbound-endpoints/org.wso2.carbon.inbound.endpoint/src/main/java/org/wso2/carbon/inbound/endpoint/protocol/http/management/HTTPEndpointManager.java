@@ -69,7 +69,7 @@ public class HTTPEndpointManager extends AbstractInboundEndpointManager {
 
     private HTTPEndpointManager() {
         super();
-        internalInboundPort = ConfigurationLoader.getInternalInboundPort();
+        internalInboundPort = ConfigurationLoader.getInternalInboundPort() ;
         if (internalInboundPort != -1) {
             List<InternalAPI> internalAPIList = ConfigurationLoader.loadInternalAPIs(Constants.INTERNAL_APIS_FILE);
             internalAPIDispatcher = new InternalAPIDispatcher(internalAPIList);

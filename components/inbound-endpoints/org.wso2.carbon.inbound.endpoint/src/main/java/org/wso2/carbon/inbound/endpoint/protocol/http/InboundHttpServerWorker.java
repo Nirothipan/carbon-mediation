@@ -49,6 +49,7 @@ import org.apache.synapse.transport.passthru.SourceRequest;
 import org.apache.synapse.transport.passthru.config.SourceConfiguration;
 import org.wso2.carbon.context.PrivilegedCarbonContext;
 import org.wso2.carbon.core.multitenancy.utils.TenantAxisUtils;
+import org.wso2.carbon.inbound.endpoint.persistence.PersistenceUtils;
 import org.wso2.carbon.inbound.endpoint.protocol.http.management.HTTPEndpointManager;
 import org.wso2.carbon.utils.multitenancy.MultitenantConstants;
 import org.wso2.carbon.utils.multitenancy.MultitenantUtils;
@@ -82,7 +83,9 @@ public class InboundHttpServerWorker extends ServerWorker {
         this.port = port;
         this.tenantDomain = tenantDomain;
         restHandler = new RESTRequestHandler();
-        isInternalInboundEndpoint = (HTTPEndpointManager.getInstance().getInternalInboundPort() == port);
+        isInternalInboundEndpoint = (
+                (HTTPEndpointManager.getInstance().getInternalInboundPort() + PersistenceUtils.getPortOffset())
+                        == port);
     }
 
     public void run() {
