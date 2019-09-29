@@ -31,13 +31,6 @@
     <url>http://wso2.org</url>
     <description>This feature contains the bundles required for sap</description>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.wso2.carbon.mediation</groupId>
-            <artifactId>org.wso2.carbon.transports.sap</artifactId>
-        </dependency>
-    </dependencies>
-
     <profiles>
         <profile>
             <id>jenkins</id>
@@ -56,6 +49,7 @@
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>build-helper-maven-plugin</artifactId>
+                        <version>3.0.0</version>
                         <executions>
                             <execution>
                                 <id>released-version</id>
@@ -74,6 +68,13 @@
         </profile>
     </profiles>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.wso2.carbon.mediation</groupId>
+            <artifactId>org.wso2.carbon.transports.sap</artifactId>
+            <version>4.7.18</version>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
